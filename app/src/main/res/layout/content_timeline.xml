@@ -12,18 +12,10 @@
     tools:context="com.example.haungsn.finalprojectapi15.TimelineActivity"
     tools:showIn="@layout/activity_timeline">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/timeline_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/timeline_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
-
-
-    </LinearLayout>
+        android:layout_height="match_parent"
+        />
 
 </RelativeLayout>

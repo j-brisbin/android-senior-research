@@ -17,17 +17,17 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.CardView
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/memory_game_card"
             android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_width="300dp"
+            android:layout_height="75dp"
             card_view:cardElevation="2sp"
             card_view:cardBackgroundColor="#7C2B83"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="20dp">
             <TextView
                 android:id="@+id/memory_game_text"
                 android:layout_width="match_parent"
@@ -43,11 +43,11 @@
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/timeline_card"
             android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_width="300dp"
+            android:layout_height="75dp"
             card_view:cardElevation="2sp"
             card_view:cardBackgroundColor="#00467F"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="20dp">
             <TextView
                 android:id="@+id/timeline_text"
                 android:layout_width="match_parent"
@@ -63,8 +63,8 @@
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/trivia_game_card"
             android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_width="300dp"
+            android:layout_height="75dp"
             card_view:cardElevation="2sp"
             card_view:cardBackgroundColor="#7C2B83"
             android:layout_marginBottom="10dp">

@@ -2,18 +2,60 @@
 <items version="2" >
 
     <item
-        jar="/Users/jbrisbin32/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar"
+        jar="C:\Users\User\AndroidStudioProjects\FinalProjectAPI15\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="/Users/jbrisbin32/AndroidStudioProjects/FinalProjectAPI15/app/build/intermediates/pre-dexed/debug/glide-3.7.0-d40172a72922a14cb616b9aa6c257b921d43e59c.jar" />
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="C:\Users\User\AndroidStudioProjects\FinalProjectAPI15\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1-70cefa8948478f474b1d4392f6e7aaecb94592ca.jar" />
     </item>
     <item
-        jar="/Users/jbrisbin32/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jar="C:\Users\User\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="C:\Users\User\AndroidStudioProjects\FinalProjectAPI15\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1-3e801f2c585276f3f273a9825aabeda71442f872.jar" />
+    </item>
+    <item
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/Users/jbrisbin32/AndroidStudioProjects/FinalProjectAPI15/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-e5bae9906692e41c1bc42a78ca27fda5fe93e351.jar" />
+        <dex dex="C:\Users\User\AndroidStudioProjects\FinalProjectAPI15\app\build\intermediates\pre-dexed\debug\picasso-2.5.2-badcc59626c8bf60fbd570ba883ac0f8d5c9be7a.jar" />
+    </item>
+    <item
+        jar="C:\Users\User\AndroidStudioProjects\FinalProjectAPI15\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="C:\Users\User\AndroidStudioProjects\FinalProjectAPI15\app\build\intermediates\pre-dexed\debug\classes-ef2d9f5a4774df66c1c5d26502518e01f28693a4.jar" />
+    </item>
+    <item
+        jar="C:\Users\User\AndroidStudioProjects\FinalProjectAPI15\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="C:\Users\User\AndroidStudioProjects\FinalProjectAPI15\app\build\intermediates\pre-dexed\debug\classes-f1ba223bd4ebd2dbe6cbbde2c3bd5abc28d5c186.jar" />
+    </item>
+    <item
+        jar="C:\Users\User\AndroidStudioProjects\FinalProjectAPI15\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="C:\Users\User\AndroidStudioProjects\FinalProjectAPI15\app\build\intermediates\pre-dexed\debug\classes-a4640f75bc01a6d9ee9c4f822319f7c4529f1cbe.jar" />
+    </item>
+    <item
+        jar="C:\Users\User\AndroidStudioProjects\FinalProjectAPI15\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="39ae02ce40c3ac828abbf780ce0ff5d7a28b7d6a">
+        <dex dex="C:\Users\User\AndroidStudioProjects\FinalProjectAPI15\app\build\intermediates\pre-dexed\debug\classes-135d9a4e2161c796152a8f032d48e037cc8e0fd4.jar" />
+    </item>
+    <item
+        jar="C:\Users\User\AndroidStudioProjects\FinalProjectAPI15\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="C:\Users\User\AndroidStudioProjects\FinalProjectAPI15\app\build\intermediates\pre-dexed\debug\classes-29868bf7161bf846a88b53526a6599b8882e7aee.jar" />
     </item>
 
 </items>
