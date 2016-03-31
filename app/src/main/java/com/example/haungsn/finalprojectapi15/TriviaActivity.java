@@ -2,6 +2,8 @@ package com.example.haungsn.finalprojectapi15;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -193,12 +195,11 @@ public class TriviaActivity extends AppCompatActivity {
                 /*Takes the text from the companion TextView then checks it against the
                 * correct answer.*/
                 currentMCQuestion.setSelectedAnswer(choice4Text.getText() + "");
-                if(currentMCQuestion.checkAnswer()){
+                if (currentMCQuestion.checkAnswer()) {
                     showQuestionCorrectAlertDialog();
                     triviaLogic.setScore(triviaLogic.getScore() + 10);
                     hideCardsAndText();
-                }
-                else{
+                } else {
                     showQuestionIncorrectAlertDialog();
                     triviaLogic.setScore(triviaLogic.getScore() - 10);
                 }
@@ -207,6 +208,11 @@ public class TriviaActivity extends AppCompatActivity {
         });
 
         scoreTextView.setText("Score: " + triviaLogic.getScore());
+        /*Portrait orientation and bools.xml files are courtesy of StackOverflow:
+        * http://stackoverflow.com/questions/9627774/android-allow-portrait-and-landscape-for-tablets-but-force-portrait-on-phone */
+        if(getResources().getBoolean(R.bool.portrait_only)){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
     }
 
     public void hideCardsAndText(){
@@ -251,6 +257,11 @@ public class TriviaActivity extends AppCompatActivity {
         statusTextView.setText("Question: " + triviaLogic.getCurrentQuestionCount() + " / " +
                 triviaLogic.getTotalQuestionCount());
         scoreTextView.setText("Score: " + triviaLogic.getScore());
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
     }
 
     public void showCardsAndTextMC(){

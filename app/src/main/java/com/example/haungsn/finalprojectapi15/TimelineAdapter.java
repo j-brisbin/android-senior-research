@@ -4,6 +4,8 @@ import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +33,7 @@ public class TimelineAdapter  extends RecyclerView.Adapter<TimelineAdapter.Timel
         public TextView timelineItemYear;
         public TextView timelineItemName;
         public TextView timelineItemDescription;
+        public TextView timelineReferenceLink;
         public Typeface robotoThin;
         public Typeface robotoLight;
         public Typeface robotoRegular;
@@ -45,11 +48,16 @@ public class TimelineAdapter  extends RecyclerView.Adapter<TimelineAdapter.Timel
             timelineItemYear = (TextView)v.findViewById(R.id.timeline_item_year);
             timelineItemName = (TextView)v.findViewById(R.id.timeline_item_name);
             timelineItemDescription = (TextView)v.findViewById(R.id.timeline_item_description);
+            timelineReferenceLink = (TextView)v.findViewById(R.id.timeline_reference_link);
+
+
+
 
             /*Sets TextViews to the appropriate font.*/
             timelineItemYear.setTypeface(robotoThin);
             timelineItemName.setTypeface(robotoLight);
             timelineItemDescription.setTypeface(robotoRegular);
+            timelineReferenceLink.setTypeface(robotoRegular);
         }
     }
 
@@ -71,6 +79,13 @@ public class TimelineAdapter  extends RecyclerView.Adapter<TimelineAdapter.Timel
         timelineViewHolder.timelineItemYear.setText(timelineItems.get(i).getYear() + "");
         timelineViewHolder.timelineItemName.setText(timelineItems.get(i).getName());
         timelineViewHolder.timelineItemDescription.setText(timelineItems.get(i).getDescription());
+        /*Makes reference link clickable, courtesy of StackOverflow:
+            http://stackoverflow.com/questions/9290651/make-a-hyperlink-textview-in-android*/
+        timelineViewHolder.timelineReferenceLink.setClickable(true);
+        timelineViewHolder.timelineReferenceLink.setMovementMethod(LinkMovementMethod.getInstance());
+        String hyperlink = "<a href='" + timelineItems.get(i).getReferenceLink()
+                + "'>" + "Reference Link" + "</a>";
+        timelineViewHolder.timelineReferenceLink.setText(Html.fromHtml(hyperlink));
     }
 
     @Override

@@ -1,15 +1,12 @@
 package com.example.haungsn.finalprojectapi15;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.util.Log;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.DecelerateInterpolator;
 
 /**
  * Created by User on 11/28/2015.
@@ -23,12 +20,12 @@ public class Card extends ImageSprite{
     private int viewWidth;
     private int viewHeight;
     private Resources resources;
-    private Matrix frontMatrix, backMatrix;
     private int x;
     private int y;
-    public Card(Context context, Resources resources, int frontImageID, int backImageID, int x, int y, int viewWidth, int viewHeight,
-                String name, String description) {
-        super(context, resources,backImageID,x,y,0.4,0.4);
+    public Card(Context context, Resources resources, int frontImageID,
+                int backImageID, int x, int y, int viewWidth,
+                int viewHeight, String name, String description){
+        super(context,resources,backImageID,x,y,0.4,0.4);
         this.frontImageID = frontImageID;
         this.backImageID = backImageID;
         this.x = x;
@@ -39,9 +36,23 @@ public class Card extends ImageSprite{
         this.faceDown = false;
         this.viewHeight = viewHeight;
         this.viewWidth = viewWidth;
-        /*this.frontMatrix = new Matrix();
-        this.backMatrix = new Matrix();
-        this.frontMatrix.postScale(-1,1);*/
+    }
+
+    public Card(Context context, Resources resources, int frontImageID,
+                int backImageID, int x, int y,
+                double xScale, double yScale, int viewWidth,
+                int viewHeight, String name, String description){
+        super(context,resources,backImageID,x,y,xScale,yScale);
+        this.frontImageID = frontImageID;
+        this.backImageID = backImageID;
+        this.x = x;
+        this.y = y;
+        this.resources = resources;
+        this.name = name;
+        this.description = description;
+        this.faceDown = false;
+        this.viewHeight = viewHeight;
+        this.viewWidth = viewWidth;
     }
 
     public void draw(Canvas canvas){

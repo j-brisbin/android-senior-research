@@ -8,18 +8,21 @@ public class TimelineItem {
     private int year;
     private String name;
     private String description;
+    private String referenceLink;
 
-    public TimelineItem(int id, int year, String name, String description){
+    public TimelineItem(int id, int year, String name, String description, String referenceLink){
         this.id = id;
         this.year = year;
         this.name = name;
         this.description = description;
+        this.referenceLink = referenceLink;
     }
 
-    public TimelineItem(int year, String name, String description){
+    public TimelineItem(int year, String name, String description, String referenceLink){
         this.year = year;
         this.name = name;
         this.description = description;
+        this.referenceLink = referenceLink;
     }
 
     public int getId() {
@@ -52,5 +55,13 @@ public class TimelineItem {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getReferenceLink() {
+        return referenceLink;
+    }
+
+    public void setReferenceLink(String referenceLink) {
+        this.referenceLink = referenceLink;
     }
 }

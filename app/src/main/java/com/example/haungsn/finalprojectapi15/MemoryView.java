@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.content.res.Configuration;
 import android.graphics.Canvas;
 import android.graphics.Typeface;
 import android.os.CountDownTimer;
@@ -21,15 +22,19 @@ public class MemoryView extends View {
     private TextView scoreTextView;
     private Context context;
     private AssetManager assetManager;
-    public MemoryView(Context context, TextView scoreTextView, AssetManager assetManager){
+    public MemoryView(Context context, TextView scoreTextView,
+                      AssetManager assetManager){
         super(context);
         this.context = context;
         this.scoreTextView = scoreTextView;
         this.assetManager = assetManager;
+
     }
 
     public void initialize(){
-        memoryLogic = new MemoryLogic(context,getWidth(),getHeight());
+        int screenSize = getResources().getConfiguration().screenLayout &
+                Configuration.SCREENLAYOUT_SIZE_MASK;
+        memoryLogic = new MemoryLogic(context,getWidth(),getHeight(),screenSize);
         super.setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {

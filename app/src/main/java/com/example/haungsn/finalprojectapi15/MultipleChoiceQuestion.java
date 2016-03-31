@@ -31,7 +31,7 @@ public class MultipleChoiceQuestion extends Question{
     }
 
 
-    public void ShuffleAnswers(){
+    public void shuffleAnswers(){
         /*Shuffle code is courtesy of StackOverflow user Michael Borgwardt:
         * http://stackoverflow.com/questions/4228975/how-to-randomize-arraylist */
         long seed = System.nanoTime();

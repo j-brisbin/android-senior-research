@@ -27,6 +27,34 @@ public class ImageSprite extends Sprite implements Target
     private int viewWidth;
     private int viewHeight;
 
+
+
+    public ImageSprite(Context context, Resources resources, int resourceId,
+                       int x, int y, double scaleX, double scaleY)
+    {
+        super(x, y, 0, 0);
+        this.resources = resources;
+        this.canvas = null;
+
+        image = BitmapFactory.decodeResource(resources, resourceId, null);
+
+        this.xScale = scaleX;
+        this.yScale = scaleY;
+        this.radians = 0;
+        this.viewWidth = 0;
+        this.viewHeight = 0;
+        this.image = image.copy(image.getConfig(), true);
+        /*Picasso code is courtesy of square.github.io and StackOverflow
+        * http://square.github.io/picasso/
+          http://stackoverflow.com/questions/33472916/get-bitmap-image-using-picasso-library
+          http://square.github.io/picasso/2.x/picasso/ */
+        Picasso.with(context).load(resourceId).into(this);
+        this.setWidth(this.image.getWidth());
+        this.setHeight(this.image.getHeight());
+        this.isVisible = true;
+
+    }
+
     public ImageSprite(Resources resources, int resourceId, int x, int y)
     {
         super(x, y, 0, 0);
@@ -40,43 +68,13 @@ public class ImageSprite extends Sprite implements Target
         this.viewWidth = 0;
         this.viewHeight = 0;
 
-      //  isScaledRelativeToCanvas = false;
-
-        this.setWidth(this.image.getWidth());
-        this.setHeight(this.image.getHeight());
-      //  this.scaledImage = Bitmap.createScaledBitmap(this.image, this.getWidth(),this.getHeight(), true);
-        this.image = image.copy(image.getConfig(),true);
-
-        this.isVisible = true;
-
-    }
-
-    public ImageSprite(Context context, Resources resources, int resourceId, int x, int y, double scaleX, double scaleY)
-    {
-        super(x, y, 0, 0);
-        this.resources = resources;
-        this.canvas = null;
-
-        image = BitmapFactory.decodeResource(resources, resourceId, null);
-
-        this.xScale = scaleX;
-        this.yScale = scaleY;
-        this.radians = 0;
-        this.viewWidth = 0;
-        this.viewHeight = 0;
-
         //  isScaledRelativeToCanvas = false;
 
-
-        //  this.scaledImage = Bitmap.createScaledBitmap(this.image, this.getWidth(),this.getHeight(), true);
-        this.image = image.copy(image.getConfig(), true);
-        /*Picasso code is courtesy of square.github.io and StackOverflow
-        * http://square.github.io/picasso/
-          http://stackoverflow.com/questions/33472916/get-bitmap-image-using-picasso-library
-          http://square.github.io/picasso/2.x/picasso/ */
-        Picasso.with(context).load(resourceId).into(this);
         this.setWidth(this.image.getWidth());
         this.setHeight(this.image.getHeight());
+        //  this.scaledImage = Bitmap.createScaledBitmap(this.image, this.getWidth(),this.getHeight(), true);
+        this.image = image.copy(image.getConfig(),true);
+
         this.isVisible = true;
 
     }

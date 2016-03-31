@@ -42,7 +42,7 @@ public class GameOverActivity extends AppCompatActivity {
         newGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GameOverActivity.this,MainActivity.class);
+                Intent intent = new Intent(GameOverActivity.this,MemoryGameActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 GameOverActivity.this.startActivity(intent);
                 GameOverActivity.this.finish();

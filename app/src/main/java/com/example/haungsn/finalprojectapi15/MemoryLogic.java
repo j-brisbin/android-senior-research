@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -41,8 +42,9 @@ public class MemoryLogic {
     private boolean gameOver = false;
     private Random randomCard;
     private int randomCardSelection;
+    private int screenSize;
     private ArrayList<MemoryGameItem> memoryGameItems;
-    public MemoryLogic(Context context,int width,int height){
+    public MemoryLogic(Context context,int width,int height,int screenSize){
         this.context = context;
         this.busy = false;
         this.score = 0;
@@ -50,6 +52,7 @@ public class MemoryLogic {
         this.cardSelectedCounter = 0;
         this.canvasWidth = width;
         this.canvasHeight = height;
+        this.screenSize = screenSize;
         this.backBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.card_design_back, null);
         cardTable = new ArrayList<>();
         cardImageIDs = new ArrayList<>();
@@ -66,6 +69,24 @@ public class MemoryLogic {
         * http://stackoverflow.com/questions/4228975/how-to-randomize-arraylist */
         long seed = System.nanoTime();
         Collections.shuffle(cardImageIDs,new Random(seed));
+        /*Screen size code is courtesy of StackOverflow:
+        * http://stackoverflow.com/questions/11252067/how-do-i-get-the-screensize-programmatically-in-android */
+        double xScale = 0.0;
+        double yScale = 0.0;
+        switch(screenSize){
+            case Configuration.SCREENLAYOUT_SIZE_SMALL:
+                xScale = 0.2;
+                yScale = 0.2;
+            case Configuration.SCREENLAYOUT_SIZE_NORMAL:
+                xScale = 0.4;
+                yScale = 0.4;
+            case Configuration.SCREENLAYOUT_SIZE_LARGE:
+                xScale = 0.5;
+                yScale = 0.5;
+            case Configuration.SCREENLAYOUT_SIZE_XLARGE:
+                xScale = 0.7;
+                yScale = 0.7;
+        };
         for(int i = 0;i<cardCount;i++){
             if((i % cardImageIDs.size()) == 0){
                 Collections.shuffle(cardImageIDs,new Random(seed));
@@ -77,6 +98,8 @@ public class MemoryLogic {
                     R.drawable.card_design_back,
                     (i % 9) * (canvasWidth / 9),
                     (i / 9) * (canvasHeight / 2),
+                    xScale,
+                    yScale,
                     canvasWidth,
                     canvasHeight,
                     "A card",
@@ -172,30 +195,5 @@ public class MemoryLogic {
 
     public int getScore() {
         return score;
-    }
-
-    public void restart(){
-        this.busy = false;
-        this.score = 0;
-        this.cardsRemoved = 0;
-        this.cardSelectedCounter = 0;
-        long seed = System.nanoTime();
-        Collections.shuffle(cardImageIDs,new Random(seed));
-        for(int i = 0;i<cardCount;i++){
-            if((i % cardImageIDs.size()) == 0){
-                Collections.shuffle(cardImageIDs,new Random(seed));
-            }
-            cardTable.add(new Card(
-                    context,
-                    this.context.getResources(),
-                    cardImageIDs.get(i % cardImageIDs.size()),
-                    R.drawable.card_design_back,
-                    (i % 9) * (canvasWidth / 9),
-                    (i / 9) * (canvasHeight / 2),
-                    canvasWidth,
-                    canvasHeight,
-                    "A card",
-                    "This is a card."));
-        }
     }
 }

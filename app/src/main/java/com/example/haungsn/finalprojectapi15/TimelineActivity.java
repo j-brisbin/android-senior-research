@@ -35,32 +35,32 @@ public class TimelineActivity extends AppCompatActivity {
         timelineItems = new ArrayList<>();
         timelineItems.add(new TimelineItem(1985,"Nintendo Entertainment System (NES)",
                 "The NES was released in the US, becoming the system to bring the American " +
-                        "video game market out of the crash."));
+                        "video game market out of the crash.","http://www.google.com/"));
         timelineItems.add(new TimelineItem(1989,"Sega Genesis","The first 16-bit system, the " +
                 "Sega Genesis, is released. It was the first major system to successfully " +
-                "compete against Nintendo."));
+                "compete against Nintendo.","http://www.arstechnica.com"));
         timelineItems.add(new TimelineItem(1991,"Super Nintendo Entertainment System (SNES)",
                 "The SNES is released in the US, bringing superior technical capabilities " +
-                        "compared to the Sega Genesis."));
+                        "compared to the Sega Genesis.","http://www.reddit.com"));
         timelineItems.add(new TimelineItem(1995,"Sega Saturn and Sony PlayStation",
                 "The Sega Saturn and Sony PlayStation are released in the US, ushering in " +
-                        "a new era of 3D gaming."));
+                        "a new era of 3D gaming.","http://en.wikipedia.org"));
         timelineItems.add(new TimelineItem(1996,"Nintendo 64","The Nintendo 64 is released, the " +
                 "first true 64-bit system to be created. It was the only system of this " +
-                "generation to use cartridges."));
+                "generation to use cartridges.","http://www.amazon.com"));
         timelineItems.add(new TimelineItem(1999,"Sega Dreamcast","The Sega Dreamcast, Sega's " +
                 "last console was released in the US. It brought better graphics and sound than " +
                 "the competition of the time and was the first to bring online gaming on a console.\n " +
                 "The system was short-lived due to increased competition from Sony's PlayStation 2 " +
-                "and Microsoft's Xbox."));
+                "and Microsoft's Xbox.","http://www.twitter.com"));
         timelineItems.add(new TimelineItem(2000,"PlayStation 2","The PlayStation 2 is released " +
                 "in the US. It is one of the most successful consoles of all time with a large " +
-                "library of games released for it."));
+                "library of games released for it.","http://www.google.com/"));
         timelineItems.add(new TimelineItem(2001,"Microsoft Xbox and Nintendo GameCube",
                 "The Nintendo GameCube and Microsoft Xbox were released. While the GameCube would " +
                         "be unsuccessful due to it's proprietary minidisc format, the Xbox would " +
                         "be the system that brought online gaming to the masses with the console's " +
-                        "Xbox Live service."));
+                        "Xbox Live service.","http://www.facebook.com"));
 
         /*Define RecyclerView with accompanying LayoutManager and custom adapter.*/
         timelineLayoutManager = new LinearLayoutManager(this.getApplicationContext());

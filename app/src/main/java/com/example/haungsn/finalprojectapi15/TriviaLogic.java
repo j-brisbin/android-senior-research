@@ -63,6 +63,7 @@ public class TriviaLogic {
         int randomSelection = r.nextInt(multipleChoiceQuestions.size());
         Log.i("Random selection MC", randomSelection + "");
         currentMultipleChoiceQuestion =  multipleChoiceQuestions.get(randomSelection);
+        currentMultipleChoiceQuestion.shuffleAnswers();
         return currentMultipleChoiceQuestion;
     }
 
