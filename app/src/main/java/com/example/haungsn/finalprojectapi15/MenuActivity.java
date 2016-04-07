@@ -15,10 +15,12 @@ public class MenuActivity extends AppCompatActivity {
     private CardView memoryGameCard;
     private CardView timelineCard;
     private CardView triviaGameCard;
+    private CardView aboutCard;
 
     private TextView memoryText;
     private TextView timelineText;
     private TextView triviaText;
+    private TextView aboutText;
 
     private Typeface robotoLight;
 
@@ -32,21 +34,24 @@ public class MenuActivity extends AppCompatActivity {
         memoryGameCard = (CardView)findViewById(R.id.memory_game_card);
         timelineCard = (CardView)findViewById(R.id.timeline_card);
         triviaGameCard = (CardView)findViewById(R.id.trivia_game_card);
+        aboutCard = (CardView)findViewById(R.id.about_card);
 
         memoryText = (TextView)findViewById(R.id.memory_game_text);
         timelineText = (TextView)findViewById(R.id.timeline_text);
         triviaText = (TextView)findViewById(R.id.trivia_game_text);
+        aboutText = (TextView)findViewById(R.id.about_text);
 
         robotoLight = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Light.ttf");
 
         memoryText.setTypeface(robotoLight);
         timelineText.setTypeface(robotoLight);
         triviaText.setTypeface(robotoLight);
+        aboutText.setTypeface(robotoLight);
 
         memoryGameCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),MemoryGameActivity.class);
+                Intent intent = new Intent(v.getContext(), MemoryGameActivity.class);
                 startActivity(intent);
             }
         });
@@ -63,6 +68,14 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(),TriviaActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        aboutCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),AboutActivity.class);
                 startActivity(intent);
             }
         });

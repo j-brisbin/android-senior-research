@@ -79,6 +79,26 @@
                 android:textSize="20sp" />
         </android.support.v7.widget.CardView>
 
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/about_card"
+            android:layout_gravity="center"
+            android:layout_width="300dp"
+            android:layout_height="75dp"
+            card_view:cardElevation="2sp"
+            card_view:cardBackgroundColor="#00467F"
+            android:layout_marginBottom="20dp">
+            <TextView
+                android:id="@+id/about_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/about_string"
+                android:gravity="center_vertical|center_horizontal"
+                android:textAppearance="@android:style/TextAppearance.Medium"
+                android:textColor="#FFF"
+                android:textSize="20sp" />
+        </android.support.v7.widget.CardView>
+
     </LinearLayout>
 
 </RelativeLayout>

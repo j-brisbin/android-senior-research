@@ -78,11 +78,11 @@ public class MemoryLogic {
                 xScale = 0.2;
                 yScale = 0.2;
             case Configuration.SCREENLAYOUT_SIZE_NORMAL:
+                xScale = 0.2;
+                yScale = 0.2;
+            case Configuration.SCREENLAYOUT_SIZE_LARGE:
                 xScale = 0.4;
                 yScale = 0.4;
-            case Configuration.SCREENLAYOUT_SIZE_LARGE:
-                xScale = 0.5;
-                yScale = 0.5;
             case Configuration.SCREENLAYOUT_SIZE_XLARGE:
                 xScale = 0.7;
                 yScale = 0.7;

@@ -108,28 +108,10 @@ public class TriviaActivity extends AppCompatActivity {
                 /*Checks the current question type then compares the selected answer to the
                 * stored correct answer for the current multiple choice or true/false question.*/
                 if(triviaLogic.getCurrentQuestionType().equals("MC")){
-                    currentMCQuestion.setSelectedAnswer(choice1Text.getText() + "");
-                    if (currentMCQuestion.checkAnswer()){
-                        showQuestionCorrectAlertDialog();
-                        triviaLogic.setScore(triviaLogic.getScore() + 10);
-                        hideCardsAndText();
-                    }
-                    else {
-                        showQuestionIncorrectAlertDialog();
-                        triviaLogic.setScore(triviaLogic.getScore() - 10);
-                    }
+                    checkSelectedMCAnswer(choice1Text.getText() + "");
                 }
                 else if(triviaLogic.getCurrentQuestionType().equals("T/F")){
-                    currentTFQuestion.setSelectedAnswer(choice1Text.getText() + "");
-                    if (currentTFQuestion.checkAnswer()){
-                        showQuestionCorrectAlertDialog();
-                        triviaLogic.setScore(triviaLogic.getScore() + 10);
-                        hideCardsAndText();
-                    }
-                    else {
-                        showQuestionIncorrectAlertDialog();
-                        triviaLogic.setScore(triviaLogic.getScore() - 10);
-                    }
+                    checkSelectedTFAnswer(choice1Text.getText() + "");
                 }
                 scoreTextView.setText("Score: " + triviaLogic.getScore());
             }
@@ -142,28 +124,10 @@ public class TriviaActivity extends AppCompatActivity {
                 /*Checks the current question type then compares the selected answer to the
                 * stored correct answer for the current multiple choice or true/false question.*/
                 if(triviaLogic.getCurrentQuestionType().equals("MC")){
-                    currentMCQuestion.setSelectedAnswer(choice2Text.getText() + "");
-                    if (currentMCQuestion.checkAnswer()){
-                        showQuestionCorrectAlertDialog();
-                        triviaLogic.setScore(triviaLogic.getScore() + 10);
-                        hideCardsAndText();
-                    }
-                    else {
-                        showQuestionIncorrectAlertDialog();
-                        triviaLogic.setScore(triviaLogic.getScore() - 10);
-                    }
+                    checkSelectedMCAnswer(choice2Text.getText() + "");
                 }
                 else if(triviaLogic.getCurrentQuestionType().equals("T/F")){
-                    currentTFQuestion.setSelectedAnswer(choice2Text.getText() + "");
-                    if (currentTFQuestion.checkAnswer()){
-                        showQuestionCorrectAlertDialog();
-                        triviaLogic.setScore(triviaLogic.getScore() + 10);
-                        hideCardsAndText();
-                    }
-                    else {
-                        showQuestionIncorrectAlertDialog();
-                        triviaLogic.setScore(triviaLogic.getScore() - 10);
-                    }
+                    checkSelectedTFAnswer(choice2Text.getText() + "");
                 }
 
                 scoreTextView.setText("Score: " + triviaLogic.getScore());
@@ -175,17 +139,7 @@ public class TriviaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 /*Takes the text from the companion TextView then checks it against the
                 * correct answer.*/
-                currentMCQuestion.setSelectedAnswer(choice3Text.getText() + "");
-                if(currentMCQuestion.checkAnswer()){
-                    showQuestionCorrectAlertDialog();
-                    triviaLogic.setScore(triviaLogic.getScore() + 10);
-                    hideCardsAndText();
-                }
-                else{
-                    showQuestionIncorrectAlertDialog();
-                    triviaLogic.setScore(triviaLogic.getScore() - 10);
-                }
-                scoreTextView.setText("Score: " + triviaLogic.getScore());
+                checkSelectedMCAnswer(choice3Text.getText() + "");
             }
         });
 
@@ -194,16 +148,7 @@ public class TriviaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 /*Takes the text from the companion TextView then checks it against the
                 * correct answer.*/
-                currentMCQuestion.setSelectedAnswer(choice4Text.getText() + "");
-                if (currentMCQuestion.checkAnswer()) {
-                    showQuestionCorrectAlertDialog();
-                    triviaLogic.setScore(triviaLogic.getScore() + 10);
-                    hideCardsAndText();
-                } else {
-                    showQuestionIncorrectAlertDialog();
-                    triviaLogic.setScore(triviaLogic.getScore() - 10);
-                }
-                scoreTextView.setText("Score: " + triviaLogic.getScore());
+                checkSelectedMCAnswer(choice4Text.getText() + "");
             }
         });
 
@@ -213,6 +158,11 @@ public class TriviaActivity extends AppCompatActivity {
         if(getResources().getBoolean(R.bool.portrait_only)){
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
     }
 
     public void hideCardsAndText(){
@@ -259,11 +209,6 @@ public class TriviaActivity extends AppCompatActivity {
         scoreTextView.setText("Score: " + triviaLogic.getScore());
     }
 
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-    }
-
     public void showCardsAndTextMC(){
         questionText.setText(currentMCQuestion.getQuestion());
         choice1Text.setText(currentMCQuestion.getChoices().get(0));
@@ -296,6 +241,32 @@ public class TriviaActivity extends AppCompatActivity {
         questionText.setVisibility(View.VISIBLE);
         choice1Text.setVisibility(View.VISIBLE);
         choice2Text.setVisibility(View.VISIBLE);
+    }
+
+    public void checkSelectedMCAnswer(String answer){
+        currentMCQuestion.setSelectedAnswer(answer);
+        if (currentMCQuestion.checkAnswer()) {
+            showQuestionCorrectAlertDialog();
+            triviaLogic.setScore(triviaLogic.getScore() + 10);
+            hideCardsAndText();
+        } else {
+            showQuestionIncorrectAlertDialog();
+            triviaLogic.setScore(triviaLogic.getScore() - 10);
+        }
+        scoreTextView.setText("Score: " + triviaLogic.getScore());
+    }
+
+    public void checkSelectedTFAnswer(String answer){
+        currentTFQuestion.setSelectedAnswer(answer);
+        if (currentTFQuestion.checkAnswer()){
+            showQuestionCorrectAlertDialog();
+            triviaLogic.setScore(triviaLogic.getScore() + 10);
+            hideCardsAndText();
+        }
+        else {
+            showQuestionIncorrectAlertDialog();
+            triviaLogic.setScore(triviaLogic.getScore() - 10);
+        }
     }
 
     public void showQuestionCorrectAlertDialog(){
