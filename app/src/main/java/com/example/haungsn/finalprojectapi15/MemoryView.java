@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.graphics.Canvas;
 import android.graphics.Typeface;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -34,6 +35,7 @@ public class MemoryView extends View {
     public void initialize(){
         int screenSize = getResources().getConfiguration().screenLayout &
                 Configuration.SCREENLAYOUT_SIZE_MASK;
+        Log.i("screensize", "Screen Size: " + screenSize);
         memoryLogic = new MemoryLogic(context,getWidth(),getHeight(),screenSize);
         super.setOnTouchListener(new OnTouchListener() {
             @Override
