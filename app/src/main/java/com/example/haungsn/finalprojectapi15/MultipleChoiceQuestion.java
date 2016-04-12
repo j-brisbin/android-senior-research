@@ -12,12 +12,23 @@ import java.util.Random;
 public class MultipleChoiceQuestion extends Question{
 
     public MultipleChoiceQuestion(int id, String question,
-                                  ArrayList<String> choices, String correctAnswer){
+                                  String choice1, String choice2, String choice3, String correctAnswer){
         this.setId(id);
         this.setQuestion(question);
-        if(choices.size() == 4){
-            this.setChoices(choices);
-        }
+        this.addChoice(choice1);
+        this.addChoice(choice2);
+        this.addChoice(choice3);
+        this.addChoice(correctAnswer);
+        this.setCorrectAnswer(correctAnswer);
+    }
+
+    public MultipleChoiceQuestion(String question,
+                                  String choice1, String choice2, String choice3, String correctAnswer){
+        this.setQuestion(question);
+        this.addChoice(choice1);
+        this.addChoice(choice2);
+        this.addChoice(choice3);
+        this.addChoice(correctAnswer);
         this.setCorrectAnswer(correctAnswer);
     }
 

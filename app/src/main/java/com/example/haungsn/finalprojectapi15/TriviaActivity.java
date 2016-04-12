@@ -20,9 +20,6 @@ public class TriviaActivity extends AppCompatActivity {
     private TriviaLogic triviaLogic;
     private ArrayList<MultipleChoiceQuestion> multipleChoiceQuestions;
     private ArrayList<TrueFalseQuestion> trueFalseQuestions;
-    private ArrayList<String> multipleChoiceTest;
-    private ArrayList<TextView> triviaTextElements;
-    private ArrayList<CardView> triviaCardElements;
     private TextView scoreTextView;
     private TextView statusTextView;
 
@@ -54,9 +51,6 @@ public class TriviaActivity extends AppCompatActivity {
         /*Initializes the Typeface variables to be used for the TextViews*/
         robotoBlack = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Black.ttf");
         robotoLight = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Light.ttf");
-        /*Initializes the CardView and TextView objects for the Trivia Game.*/
-        triviaTextElements = new ArrayList<>();
-        triviaCardElements = new ArrayList<>();
         /*Initializes all the TextView elements*/
         questionText = (TextView)findViewById(R.id.question_text);
         choice1Text = (TextView)findViewById(R.id.choice1_text);
@@ -80,19 +74,10 @@ public class TriviaActivity extends AppCompatActivity {
         scoreTextView.setTypeface(robotoLight);
         statusTextView.setTypeface(robotoLight);
         /*Initializes necessary logic for the trivia game, including the necessary ArrayLists
-        * for the Multiple Choice and True/False Questions.*/
+        * for the Multiple Choice and True/False Questions and the test questions.*/
         multipleChoiceQuestions = new ArrayList<>();
         trueFalseQuestions = new ArrayList<>();
-        multipleChoiceTest = new ArrayList<>();
-        multipleChoiceTest.add("Yes");
-        multipleChoiceTest.add("No");
-        multipleChoiceTest.add("Maybe");
-        multipleChoiceTest.add("None of the Above");
-        /*Adds sample questions to test the logic of the True/False and Multiple Choice
-        * Questions.*/
-        multipleChoiceQuestions.add(new MultipleChoiceQuestion("Is Dennis Cool?", multipleChoiceTest,
-                multipleChoiceTest.get(0)));
-        trueFalseQuestions.add(new TrueFalseQuestion("Dennis is Cool!", true));
+        addTestQuestions();
         /*Initialize Logic for the Trivia Game.*/
         triviaLogic = new TriviaLogic(trueFalseQuestions,multipleChoiceQuestions);
         /*Stores the current multiple choice question from the TriviaLogic class, then
@@ -163,6 +148,41 @@ public class TriviaActivity extends AppCompatActivity {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+    }
+
+    public void addTestQuestions(){
+         /*Adds sample questions to test the logic of the True/False and Multiple Choice
+        * Questions.*/
+        /*Test MC Questions*/
+        multipleChoiceQuestions.add(new MultipleChoiceQuestion("What is the maiden name of Elizabeth" +
+                " Ann Seton?", "Jones", "Seton", "Smith", "Bayley"));
+        multipleChoiceQuestions.add(new MultipleChoiceQuestion("Elizabeth Ann Seton founded a" +
+        " congregation of religious sisters known as the Sisters of...","Christ","Jesuits","Benedict",
+                "Charity"));
+        multipleChoiceQuestions.add(new MultipleChoiceQuestion("What year was Elizabeth Ann Seton" +
+                " born?", "1970", "1972", "1980", "1975"));
+        multipleChoiceQuestions.add(new MultipleChoiceQuestion("What is the name of Elizabeth" +
+                " Ann Seton's father?", "Robert Jones", "St. Francis Xavier", "Pope Francis",
+                "Richard Bayley"));
+        multipleChoiceQuestions.add(new MultipleChoiceQuestion("Who did Elizabeth Ann Seton marry?",
+                "John Smith", "Michael Robertson", "Nathaniel Simon", "William Seton"));
+        multipleChoiceQuestions.add(new MultipleChoiceQuestion("Elizabeth Ann Seton and the sisters" +
+                " were invited to conduct an orphanage in which city?",
+                "New York", "Pittsburgh", "Los Angeles", "Philadelphia"));
+        /*Test T/F questions*/
+        trueFalseQuestions.add(new TrueFalseQuestion("The motherhouse was the original campus" +
+                " of Mount St. Joseph University.", true));
+        trueFalseQuestions.add(new TrueFalseQuestion("William Seton was a member of a wealthy" +
+                " merchant family.", true));
+        trueFalseQuestions.add(new TrueFalseQuestion("Elizabeth Ann Seton was born after the" +
+                " Declaration of Independence was signed.", false));
+        trueFalseQuestions.add(new TrueFalseQuestion("Elizabeth Ann Seton's uncle is named" +
+                " Benedict.", false));
+        trueFalseQuestions.add(new TrueFalseQuestion("Elizabeth Ann Seton only had one child." ,false));
+        trueFalseQuestions.add(new TrueFalseQuestion("Elizabeth Ann Seton's Father died from yellow" +
+                " fever.", true));
+        trueFalseQuestions.add(new TrueFalseQuestion("Elizabeth Ann Seton was the first American" +
+                " born saint to be canonized.", true));
     }
 
     public void hideCardsAndText(){
