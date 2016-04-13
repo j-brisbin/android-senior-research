@@ -55,54 +55,6 @@ public class ImageSprite extends Sprite implements Target
 
     }
 
-    public ImageSprite(Resources resources, int resourceId, int x, int y)
-    {
-        super(x, y, 0, 0);
-        this.resources = resources;
-        this.canvas = null;
-
-        image = BitmapFactory.decodeResource(resources, resourceId, null);
-        this.xScale = 1;
-        this.yScale = 1;
-        this.radians = 0;
-        this.viewWidth = 0;
-        this.viewHeight = 0;
-
-        //  isScaledRelativeToCanvas = false;
-
-        this.setWidth(this.image.getWidth());
-        this.setHeight(this.image.getHeight());
-        //  this.scaledImage = Bitmap.createScaledBitmap(this.image, this.getWidth(),this.getHeight(), true);
-        this.image = image.copy(image.getConfig(),true);
-
-        this.isVisible = true;
-
-    }
-
-    public ImageSprite(Resources resources, Bitmap bitmap, int x, int y)
-    {
-        super(x, y, 0, 0);
-        this.resources = resources;
-        this.canvas = null;
-
-        image = bitmap;
-        this.xScale = 1;
-        this.yScale = 1;
-        this.radians = 0;
-        this.viewWidth = 0;
-        this.viewHeight = 0;
-
-        //  isScaledRelativeToCanvas = false;
-
-        this.setWidth(this.image.getWidth());
-        this.setHeight(this.image.getHeight());
-        //  this.scaledImage = Bitmap.createScaledBitmap(this.image, this.getWidth(),this.getHeight(), true);
-        this.image = image.copy(image.getConfig(),true);
-
-        this.isVisible = true;
-
-    }
-
     public void setImage(int id)
     {
         image = BitmapFactory.decodeResource(resources, id, null);
@@ -110,6 +62,8 @@ public class ImageSprite extends Sprite implements Target
         this.setHeight((int) (this.image.getHeight() * yScale));
         this.image = Bitmap.createScaledBitmap(this.image, this.getWidth(),this.getHeight(), true);
     }
+
+
     public void setImageScaledRelativeToCanvas(int id, double xScale, double yScale, int viewWidth, int viewHeight)  //can only be called after view has been created
     {
         image = BitmapFactory.decodeResource(resources, id, null);
